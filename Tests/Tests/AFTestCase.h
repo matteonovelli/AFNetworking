@@ -21,14 +21,13 @@
 
 #import <XCTest/XCTest.h>
 
-#define EXP_SHORTHAND YES
-#import "Expecta.h"
-#import "OCMock.h"
-
 extern NSString * const AFNetworkingTestsBaseURLString;
 
 @interface AFTestCase : XCTestCase
 
 @property (nonatomic, strong, readonly) NSURL *baseURL;
+@property (nonatomic, assign) NSTimeInterval networkTimeout;
+
+- (void)waitForExpectationsWithCommonTimeoutUsingHandler:(XCWaitCompletionHandler)handler;
 
 @end
